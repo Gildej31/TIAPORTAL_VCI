@@ -154,7 +154,7 @@ BEGIN
 	//******************************************************************************
 	// Portage RK512 sur communication TCP IP
 	//******************************************************************************
-	//Version 0.1  : Version de développement   05/2016
+	//Version 2.1  : Version de développement   05/2016
 	//******************************************************************************
 	//Version 1.0  : Version de client          03/08/2016
 	//******************************************************************************
@@ -251,12 +251,12 @@ BEGIN
 	        
 	    #Step101: //Réception NAK
 	        FOR #index_init_reception := 1 TO 128 DO   // Init zone réception
-	             #RECEPTION_TCP[#index_init_reception] := b#0;
+	            #RECEPTION_TCP[#index_init_reception] := b#0;
 	        END_FOR;
 	        #LEN_RECEPTION_TCP := 0;
 	        //****************************************************************************
 	        
-	    #Step102 : //Attente données en réception
+	    #Step102: //Attente données en réception
 	        #Attente_Data := True;
 	        //****************************************************************************
 	        //
@@ -301,7 +301,7 @@ BEGIN
 	        
 	    #Step201:  //Emission NAK
 	        FOR #index_init_reception := 1 TO 128 DO    // Init zone réception avant émission
-	             #RECEPTION_TCP[#index_init_reception] := b#0;
+	            #RECEPTION_TCP[#index_init_reception] := b#0;
 	        END_FOR;
 	        #Step := 16#00; //init Pas de programme
 	        #Flag_SEND := False;
@@ -311,17 +311,17 @@ BEGIN
 	        #Flag_FETCH := False;
 	        #Flag_FETCH_SUITE := False;
 	        #Flag_FETCH_END := False;
-	        #Flag_FETCH_SUITE_END:= False;
+	        #Flag_FETCH_SUITE_END := False;
 	        #LEN_RECEPTION_TCP := 0;
 	        #EMISSION_TCP[1] := #NAK; //caractère NAK à émettre
 	        #LEN_EMISSION_TCP := 1;//Longueur à émettre 1 octet
 	        #REQ_Emission := true;
-	    
+	        
 	        //****************************************************************************
 	        
 	    #Step202:     //Emission STX
 	        FOR #index_init_reception := 1 TO 128 DO    // Init zone réception avant émission
-	             #RECEPTION_TCP[#index_init_reception] := b#0;
+	            #RECEPTION_TCP[#index_init_reception] := b#0;
 	        END_FOR;
 	        //#REQ_Data_SEND := false;
 	        #LEN_RECEPTION_TCP := 0;
@@ -337,7 +337,7 @@ BEGIN
 	        
 	    #Step203: //Emission réponse SEND Normal
 	        FOR #index_init_reception := 1 TO 128 DO    // Init zone réception avant émission
-	             #RECEPTION_TCP[#index_init_reception] := b#0;
+	            #RECEPTION_TCP[#index_init_reception] := b#0;
 	        END_FOR;
 	        #LEN_RECEPTION_TCP := 0;
 	        #Flag_SEND_END := True;
@@ -365,25 +365,25 @@ BEGIN
 	        #Flag_FETCH_END := True;
 	        #Status_RK512 := #Status_RK512_9012;
 	        IF #Flag_FETCH THEN
-	           #REQ_Emission := true;
-	       END_IF;
+	            #REQ_Emission := true;
+	        END_IF;
 	        
 	        //****************************************************************************
-	    
-	    
+	        
+	        
 	    #Step206: //Emission réponse FETCH Suite
-	       FOR #index_init_reception := 1 TO 128 DO    // Init zone réception avant émission
-	           #RECEPTION_TCP[#index_init_reception] := b#0;
-	       END_FOR;
-	       #LEN_RECEPTION_TCP := 0;
-	       #Flag_FETCH_SUITE_END := True;
-	       #Status_RK512 := #Status_RK512_9015;
-	       IF #Flag_FETCH_SUITE THEN
-	       #REQ_Emission := true;
-	       ;
-	       END_IF;
-	    
-	    //****************************************************************************        
+	        FOR #index_init_reception := 1 TO 128 DO    // Init zone réception avant émission
+	            #RECEPTION_TCP[#index_init_reception] := b#0;
+	        END_FOR;
+	        #LEN_RECEPTION_TCP := 0;
+	        #Flag_FETCH_SUITE_END := True;
+	        #Status_RK512 := #Status_RK512_9015;
+	        IF #Flag_FETCH_SUITE THEN
+	            #REQ_Emission := true;
+	            ;
+	        END_IF;
+	        
+	        //****************************************************************************        
 	        
 	        
 	        
@@ -393,12 +393,12 @@ BEGIN
 	        #Test_DB := True;
 	        //****************************************************************************
 	        
-	    #Step301 : //Calcul BCC réception
+	    #Step301: //Calcul BCC réception
 	        ;
 	        //****************************************************************************
 	        
 	    #Step302: //Sélecteur de contrats SEND FECTH
-	        IF (#RECEPTION_TCP[3] = #A) AND (#RECEPTION_TCP[1] = 16#00) AND (#RECEPTION_TCP[8] < 129)THEN //Contrat SEND normal
+	        IF (#RECEPTION_TCP[3] = #A) AND (#RECEPTION_TCP[1] = 16#00) AND (#RECEPTION_TCP[8] < 129) THEN //Contrat SEND normal
 	            #Flag_SEND := true;
 	            #Flag_SEND_SUITE := false;
 	            #Flag_FETCH := false;
@@ -426,8 +426,8 @@ BEGIN
 	        IF (#RECEPTION_TCP[3] = #E) AND (#RECEPTION_TCP[1] = 16#00) THEN //Contrat FETCH normal quelque soit la longueur demandée
 	            IF (#RECEPTION_TCP[8] > 128)
 	            THEN
-	                #Save_DWNR_suite := (#RECEPTION_TCP[6]*2)+129 ;//sauvegarde du Nr de DW pour FETCH suite quand longueur >128
-	                #Long_Transfert_suite := #RECEPTION_TCP[8] ;  //Sauvegarde de la longueur à transmettre pour contrat FETCH Suite
+	                #Save_DWNR_suite := (#RECEPTION_TCP[6] * 2) + 129;//sauvegarde du Nr de DW pour FETCH suite quand longueur >128
+	                #Long_Transfert_suite := #RECEPTION_TCP[8];  //Sauvegarde de la longueur à transmettre pour contrat FETCH Suite
 	                #Save_DBNR_suite := #RECEPTION_TCP[5];  //Sauvegarde du Nr de DB
 	            END_IF;
 	            #Flag_SEND := false;
@@ -457,19 +457,19 @@ BEGIN
 	        
 	    #Step307: //Formatage réponse SEND Normal & Suite FETCH normal
 	        FOR #index_init_reception := 1 TO 128 DO    // Init zone réception avant émission
-	             #RECEPTION_TCP[#index_init_reception] := b#0;
+	            #RECEPTION_TCP[#index_init_reception] := b#0;
 	        END_FOR;
 	        #LEN_RECEPTION_TCP := 0;
 	        //****************************************************************************
 	        
-	     #Step311 :  //Calcul BCC Emission  
-	         ;
-	         //****************************************************************************
-	         
-	     #Step312 :  //Détection doucle DLE  
-	         ;
-	         //****************************************************************************
-	         
+	    #Step311:  //Calcul BCC Emission  
+	        ;
+	        //****************************************************************************
+	        
+	    #Step312:  //Détection doucle DLE  
+	        ;
+	        //****************************************************************************
+	        
 	    ELSE  // Statement section ELSE
 	        ;
 	        //****************************************************************************
@@ -483,8 +483,8 @@ BEGIN
 	//*******************************************************
 	// Réception STX Step100
 	//*******************************************************
-	IF #LEN_RECEPTION_TCP =1 AND #RECEPTION_TCP[1]= #STX THEN
-	     // Réception STX
+	IF #LEN_RECEPTION_TCP = 1 AND #RECEPTION_TCP[1] = #STX THEN
+	    // Réception STX
 	    // Init zone reception
 	    FOR #index_init_reception := 1 TO 128 DO   //Init zone de réception
 	        #RECEPTION_TCP[1] := b#0;
@@ -493,7 +493,7 @@ BEGIN
 	    #Status_RK512 := #Status_RK512_9002; //Status RK512 Réception STX
 	    #Step := #Step100;
 	    RETURN;
-	   
+	    
 	END_IF;
 	
 	//*******************************************************
@@ -503,7 +503,7 @@ BEGIN
 	    // Réception NAK
 	    #Status_RK512 := #Status_RK512_9001; //Status RK512 Réception #NAK
 	    FOR #index_init_reception := 1 TO 128 DO           //Init zone de réception
-	         #RECEPTION_TCP[#index_init_reception] := b#0;
+	        #RECEPTION_TCP[#index_init_reception] := b#0;
 	    END_FOR;
 	    #Step := 0;     //Init pas de programme
 	    RETURN;
@@ -516,7 +516,7 @@ BEGIN
 	IF #LEN_RECEPTION_TCP = 1 AND #RECEPTION_TCP[1] = #DLE THEN
 	    // Réception DLE
 	    #Status_RK512 := #Status_RK512_9003; //Status RK512 Réception DLE
-	    IF #Flag_SEND =true AND #Flag_SEND_END=false //Réponse SEND Normal  
+	    IF #Flag_SEND = true AND #Flag_SEND_END = false //Réponse SEND Normal  
 	    THEN
 	        #Step := #Step307;     //Formatage trame réponse SEND
 	        #Attente_Data := false;
@@ -524,15 +524,15 @@ BEGIN
 	        #LEN_RECEPTION_TCP := 0;
 	        RETURN;
 	    END_IF;
-	    IF #Flag_SEND=true AND #Flag_SEND_END=true //Réponse SEND Normal Fin
+	    IF #Flag_SEND = true AND #Flag_SEND_END = true //Réponse SEND Normal Fin
 	    THEN
 	        #Attente_Data := false;
 	        #RECEPTION_TCP[1] := b#0;
 	        #LEN_RECEPTION_TCP := 0;
-	       #Step := #Step105;     //Fin de transaction réponse SEND Normal
-	       RETURN;
+	        #Step := #Step105;     //Fin de transaction réponse SEND Normal
+	        RETURN;
 	    END_IF;
-	    IF #Flag_FETCH=true AND #Flag_FETCH_END = false //Réponse FETCH Normal
+	    IF #Flag_FETCH = true AND #Flag_FETCH_END = false //Réponse FETCH Normal
 	    THEN
 	        #Step := #Step309;     //Formatage trame réponse FETCH
 	        #Attente_Data := false;
@@ -570,9 +570,9 @@ BEGIN
 	// Réception 1 caractère non prévue
 	//*******************************************************
 	IF (#LEN_RECEPTION_TCP = 1) AND
-	    ((#RECEPTION_TCP[1]<>#STX)
-	    AND (#RECEPTION_TCP[1]<>#NAK)
-	    AND (#RECEPTION_TCP[1]<>#DLE))
+	    ((#RECEPTION_TCP[1] <> #STX)
+	    AND (#RECEPTION_TCP[1] <> #NAK)
+	    AND (#RECEPTION_TCP[1] <> #DLE))
 	    
 	THEN
 	    // Réception caractère non prévu
@@ -637,15 +637,15 @@ BEGIN
 	        #Status_RK512 := #Status_RK512_9021;
 	        RETURN;
 	    END_IF;
-	      
-	    IF((#RECEPTION_TCP[#LEN_RECEPTION_TCP - 2]<> #DLE)          //Pas de DLE dans l'antepénultième octet de Header->fin de trame RK512
-	        OR (#RECEPTION_TCP[#LEN_RECEPTION_TCP - 1]<> #ETX))     //Pas de ETX après DLE->fin de trame RK512
+	    
+	    IF ((#RECEPTION_TCP[#LEN_RECEPTION_TCP - 2] <> #DLE)          //Pas de DLE dans l'antepénultième octet de Header->fin de trame RK512
+	        OR (#RECEPTION_TCP[#LEN_RECEPTION_TCP - 1] <> #ETX))     //Pas de ETX après DLE->fin de trame RK512
 	    THEN
 	        #Step := #Step201;  //Emission NAK
 	        #Status_RK512 := #Status_RK512_9010;
 	        RETURN;
 	    END_IF;
-	 //***** Pas d'erreur dans le HEADER *******
+	    //***** Pas d'erreur dans le HEADER *******
 	    IF (#Step = #Step103)
 	    THEN
 	        #Step := #Step302;   //Sélecteur de contrat   
@@ -656,25 +656,25 @@ BEGIN
 	//*******************************************************
 	// Test sur DB BDW Longueur dans trame RK512 Step300 ****
 	//*******************************************************
-	IF (#Test_DB )    //Existence DB DBW Longueur ?
+	IF (#Test_DB)    //Existence DB DBW Longueur ?
 	THEN
 	    
-	    #return_value_ATTR_DB := ATTR_DB(REQ:=#Test_DB,           //demande d'exécution
-	                                               DB_NUMBER:=#DB_Nr,       //Nr de DB
-	                                               DB_LENGTH=>#DB_Length,   // Longueur du DB en retour en octets
-	                                               ATTRIB => #DB_Attrib);   //Attribut du DB en retour
-	              
+	    #return_value_ATTR_DB := ATTR_DB(REQ := #Test_DB,           //demande d'exécution
+	                                     DB_NUMBER := #DB_Nr,       //Nr de DB
+	                                     DB_LENGTH => #DB_Length,   // Longueur du DB en retour en octets
+	                                     ATTRIB => #DB_Attrib);   //Attribut du DB en retour
+	    
 	    IF (#return_value_ATTR_DB = 0) // Pas d'erreur d'execution pour ATTR_DB
 	    THEN
 	        IF ((#DB_Attrib <> 16#C) AND (#DB_Attrib <> 16#8))   // Mauvais attributs de DB (voir aide ATTR_DB)
-	        THEN 
-	            #Status_RK512 := #DB_Attrib ;  //transfert du Status de ATTRIB de ATTR_DB
+	        THEN
+	            #Status_RK512 := #DB_Attrib;  //transfert du Status de ATTRIB de ATTR_DB
 	            #Step := #Step201;  //Emission NAK
 	            RETURN;
 	        END_IF;
-	        IF (#RECEPTION_TCP[1]=16#00)    //Télégramme SEND ou FETCH normal car pas de longueur dans télégramme suite
-	        THEN    
-	            IF (#RECEPTION_TCP[6] + #RECEPTION_TCP[8] > #DB_Length*2) //Le DB n'est pas assez long
+	        IF (#RECEPTION_TCP[1] = 16#00)    //Télégramme SEND ou FETCH normal car pas de longueur dans télégramme suite
+	        THEN
+	            IF (#RECEPTION_TCP[6] + #RECEPTION_TCP[8] > #DB_Length * 2) //Le DB n'est pas assez long
 	            THEN
 	                #Status_RK512 := #Status_RK512_9014;  //DB trop court
 	                #Step := #Step201;  //Emission NAK
@@ -715,17 +715,17 @@ BEGIN
 	        THEN
 	            #Step := #Step312;//Saut DLE DLE dans trame
 	        END_IF;
-	        IF (#Flag_FETCH OR #Flag_FETCH_SUITE) AND #Step<>#Step204
+	        IF (#Flag_FETCH OR #Flag_FETCH_SUITE) AND #Step <> #Step204
 	        THEN
-	            #Step := #Step204 ;  //Emission DLE
+	            #Step := #Step204;  //Emission DLE
 	            RETURN;
-	           ;
+	            ;
 	        END_IF;
 	        RETURN;
 	    ELSE
 	        #Status_RK512 := #Status_RK512_9016;  //BCC faux
 	        #Step := #Step201;  //Emission NAK
-	       RETURN;
+	        RETURN;
 	    END_IF;
 	END_IF;
 	// **************Fin Calcul BCC reception ***************************
@@ -733,7 +733,7 @@ BEGIN
 	//*******************************************************
 	// **************Calcul BCC Emission Step311 ***********
 	//*******************************************************
-	IF (#Step=#Step311)
+	IF (#Step = #Step311)
 	THEN
 	    #Resultat_BCC := #EMISSION_TCP[1];
 	    FOR #index_BCC := 2 TO UDINT_TO_INT(#LEN_EMISSION_TCP) - 1 DO
@@ -753,7 +753,7 @@ BEGIN
 	        RETURN;
 	    END_IF;
 	    
-	    IF  #Flag_FETCH_SUITE   //Emission réponse FETCH Suite
+	    IF #Flag_FETCH_SUITE   //Emission réponse FETCH Suite
 	    THEN
 	        #Step := #Step206; //Emission réponse FETCH  Suite
 	        RETURN;
@@ -776,26 +776,26 @@ BEGIN
 	        #index_debut_detection := +5; //1er octet de données utiles dans trame SEND SUITE
 	    END_IF;
 	    #index_buffer_datas := 0; //init Index dans buffer datas
-	    FOR #index_DLE_DLE := #index_debut_detection TO UDINT_TO_INT(#LEN_RECEPTION_TCP - 3)  DO  //données utiles trame sans Header ni DLE ETX BCC
+	    FOR #index_DLE_DLE := #index_debut_detection TO UDINT_TO_INT(#LEN_RECEPTION_TCP - 3) DO  //données utiles trame sans Header ni DLE ETX BCC
 	        #index_buffer_datas := #index_buffer_datas + 1; //incrément Index Buffer
 	        #Buffer_datas[#index_buffer_datas] := #RECEPTION_TCP[#index_DLE_DLE];  //Buffer reçoit la données utilie <> de DLE
-	        IF ((#RECEPTION_TCP[#index_DLE_DLE] = #DLE) AND (#RECEPTION_TCP[#index_DLE_DLE] = #RECEPTION_TCP[#index_DLE_DLE + 1])AND (#index_DLE_DLE<> #LEN_RECEPTION_TCP-3)) //Double DLE
+	        IF ((#RECEPTION_TCP[#index_DLE_DLE] = #DLE) AND (#RECEPTION_TCP[#index_DLE_DLE] = #RECEPTION_TCP[#index_DLE_DLE + 1]) AND (#index_DLE_DLE <> #LEN_RECEPTION_TCP - 3)) //Double DLE
 	        THEN
 	            #index_buffer_datas := #index_buffer_datas - 1; //décrément Index Buffer
 	        END_IF;
 	    END_FOR;
 	    #Long_Transfert := INT_TO_WORD(#index_buffer_datas); //la longueur de données à transférer
 	    #LEN_RECEPTION_TCP := 0;
-	    #Step := #Step204 ; //Emission DLE  
+	    #Step := #Step204; //Emission DLE  
 	    RETURN;
 	END_IF;
 	// **************Fin détection doucle DLE ***************************
 	
 	
 	// ********** Transfert de données pour SEND  Step303 ******************
-	IF #Step=#Step303
+	IF #Step = #Step303
 	THEN
-	    IF (#RECEPTION_TCP[6] > 128)AND (#Flag_SEND = true )//Télégramme SEND avec SUITE
+	    IF (#RECEPTION_TCP[6] > 128) AND (#Flag_SEND = true)//Télégramme SEND avec SUITE
 	    THEN
 	        #Long_Transfert := 128;
 	    END_IF;
@@ -820,7 +820,7 @@ BEGIN
 	    END_IF;
 	    IF (#Flag_SEND)
 	    THEN
-	        #buffer_target.Dest_Byte_Pointer := 16#84000000 + SHL(IN := BYTE_TO_DWORD(#RECEPTION_TCP[6]*2), N := 3); //Calcul de l'adressage 
+	        #buffer_target.Dest_Byte_Pointer := 16#84000000 + SHL(IN := BYTE_TO_DWORD(#RECEPTION_TCP[6] * 2), N := 3); //Calcul de l'adressage 
 	        // Correspondance DW1 S5 -> DBW2 S7 si DW1 dans trame RK512 alors DBW2 pour S7 1500
 	    END_IF;
 	    #return_value_Move_Blk_Variant := MOVE_BLK_VARIANT(SRC := #Buffer_datas, COUNT := #Long_Transfert, SRC_INDEX := 0, DEST_INDEX := 0, DEST => #pAny_target);
@@ -852,10 +852,10 @@ BEGIN
 	    
 	    IF #Flag_FETCH_SUITE  //Calcul longueur pour FETCH SUITE
 	    THEN
-	        #Long_Transfert := (#Long_Transfert_suite-128) * 2; // Nombre de Bytes récupéré du contrat FETCH précédent
+	        #Long_Transfert := (#Long_Transfert_suite - 128) * 2; // Nombre de Bytes récupéré du contrat FETCH précédent
 	    END_IF;
 	    
-	
+	    
 	    #buffer_source.ANY_id := 16#10; // 16#10 -> adressage S7
 	    #buffer_source.Dest_DataType := 16#02; //16#04->WORD 16#02-> BYTE
 	    #buffer_source.Dest_Length := #Long_Transfert; //Longueur fonction du DataType
@@ -877,9 +877,9 @@ BEGIN
 	    
 	    IF (#Flag_FETCH)
 	    THEN
-	        #buffer_source.Dest_Byte_Pointer := 16#84000000 + SHL(IN := BYTE_TO_DWORD(#RECEPTION_TCP[6]*2), N := 3); //Calcul de l'adressage 
+	        #buffer_source.Dest_Byte_Pointer := 16#84000000 + SHL(IN := BYTE_TO_DWORD(#RECEPTION_TCP[6] * 2), N := 3); //Calcul de l'adressage 
 	        // Correspondance DW1 S5 -> DBW2 S7 si DW1 dans trame RK512 alors DBW2 pour S7 1500
-	       
+	        
 	    END_IF;
 	    IF (#Flag_FETCH_SUITE)
 	    THEN
@@ -903,7 +903,7 @@ BEGIN
 	// Formatage trame réponses SEND  Step307
 	//*******************************************************
 	
-	IF #Step=#Step307//Formatage trame réponse SEND 
+	IF #Step = #Step307//Formatage trame réponse SEND 
 	THEN
 	    IF #Flag_SEND THEN
 	        #EMISSION_TCP[1] := 16#00; //SEND Normal
@@ -935,17 +935,17 @@ BEGIN
 	    IF #Flag_FETCH_SUITE THEN
 	        #EMISSION_TCP[1] := 16#FF; //FETCH SUITE
 	    END_IF;
-	   
+	    
 	    
 	    #EMISSION_TCP[2] := 16#00; // toujours à 0
 	    #EMISSION_TCP[3] := 16#00; // toujours à 0
 	    #EMISSION_TCP[4] := 16#00; //Code erreur toujours à 0
-	    #index_DLE_DLE   := 4;     //Initialisation index DLE DLE
+	    #index_DLE_DLE := 4;     //Initialisation index DLE DLE
 	    FOR #index_buffer_datas := 1 TO WORD_TO_INT(#Long_Transfert) DO
-	        #index_DLE_DLE := #index_DLE_DLE +1; //incrément index DLE DLE
+	        #index_DLE_DLE := #index_DLE_DLE + 1; //incrément index DLE DLE
 	        IF #Buffer_datas[#index_buffer_datas] = #DLE  //détection de la valeur DLE
 	        THEN
-	            #EMISSION_TCP[ #index_DLE_DLE] := #Buffer_datas[#index_buffer_datas]; //DLE est copié normalement dans le buffer EMISSION
+	            #EMISSION_TCP[#index_DLE_DLE] := #Buffer_datas[#index_buffer_datas]; //DLE est copié normalement dans le buffer EMISSION
 	            #index_DLE_DLE := #index_DLE_DLE + 1; //incrément index DLE DLE et donc décalage de l'index #index_DLE_DLE par rapport à l'index #index_buffer_datas
 	            #EMISSION_TCP[#index_DLE_DLE] := #Buffer_datas[#index_buffer_datas];  //DLE est doublé dans le buffer EMISSION             
 	        ELSE
@@ -954,8 +954,8 @@ BEGIN
 	    END_FOR;
 	    
 	    
-	    #EMISSION_TCP[#index_DLE_DLE +1] := #DLE;  //Suppression liaison DLE
-	    #EMISSION_TCP[#index_DLE_DLE+2] := #ETX;  //Suppression liaison ETX
+	    #EMISSION_TCP[#index_DLE_DLE + 1] := #DLE;  //Suppression liaison DLE
+	    #EMISSION_TCP[#index_DLE_DLE + 2] := #ETX;  //Suppression liaison ETX
 	    #LEN_EMISSION_TCP := INT_TO_UDINT(#index_DLE_DLE) + 3;
 	    #Step := #Step311;  //Calcul BCC Emission
 	    RETURN;
@@ -970,16 +970,16 @@ BEGIN
 	
 	//Appel TRCV_C
 	
-	#TRCV_C_Instance(EN_R:=true ,
-	                 ADHOC:= true ,
-	                 CONT:= true,
-	                 CONNECT:=#CONNECT_TCP,
-	                 DATA:=#RECEPTION_TCP,
-	                 STATUS=>#Status_Conn_TCP);
+	#TRCV_C_Instance(EN_R := true,
+	                 ADHOC := true,
+	                 CONT := true,
+	                 CONNECT := #CONNECT_TCP,
+	                 DATA := #RECEPTION_TCP,
+	                 STATUS => #Status_Conn_TCP);
 	
 	IF #TRCV_C_Instance.RCVD_LEN > 0 THEN
 	    // Sauvegarde de longueur de réception
-	    #LEN_RECEPTION_TCP  := #TRCV_C_Instance.RCVD_LEN;
+	    #LEN_RECEPTION_TCP := #TRCV_C_Instance.RCVD_LEN;
 	END_IF;
 	
 	
@@ -989,13 +989,14 @@ BEGIN
 	//*******************************************************
 	//******* Emission de données  TCP **********************
 	//*******************************************************
-	Emission:#TSEND_C_Instance(REQ:=#REQ_Emission,
-	                  CONT:=true,
-	                  LEN:=#LEN_EMISSION_TCP,
-	                  CONNECT:=#CONNECT_TCP,
-	                  DATA:=#EMISSION_TCP);
+	Emission:
+	#TSEND_C_Instance(REQ := #REQ_Emission,
+	                  CONT := true,
+	                  LEN := #LEN_EMISSION_TCP,
+	                  CONNECT := #CONNECT_TCP,
+	                  DATA := #EMISSION_TCP);
 	
-	IF #TSEND_C_Instance.DONE OR  #TSEND_C_Instance.ERROR THEN
+	IF #TSEND_C_Instance.DONE OR #TSEND_C_Instance.ERROR THEN
 	    #REQ_Emission := false;
 	    #LEN_EMISSION_TCP := 0;
 	    
@@ -1009,7 +1010,7 @@ BEGIN
 	    IF #Step = #Step200 THEN
 	        #Step := #Step102;  //Attente de données
 	        RETURN;
-	   END_IF;
+	    END_IF;
 	END_IF;
 	
 	//*******************************************************
@@ -1022,7 +1023,7 @@ BEGIN
 	    THEN
 	        #Step := #Step303; //Saut Transfert données de DB
 	    END_IF;
-	        
+	    
 	    IF (#Step = #Step204) AND (#Flag_FETCH OR #Flag_FETCH_SUITE)
 	    THEN
 	        #Step := #Step305; //Saut Transfert données de DB pour FETCH
@@ -1032,7 +1033,7 @@ BEGIN
 	//*******************************************************
 	//******* Suite émission SEND réponse          **********
 	//*******************************************************
-	IF #TSEND_C_Instance.DONE AND #Step=#Step203
+	IF #TSEND_C_Instance.DONE AND #Step = #Step203
 	THEN
 	    #Step := #Step102; //Saut à Attente données (STX)
 	END_IF;
@@ -1056,7 +1057,7 @@ BEGIN
 	//*******************************************************
 	//******* Suite émission  STX     **********************
 	//*******************************************************
-	IF #TSEND_C_Instance.DONE AND #EMISSION_TCP[1] = #STX 
+	IF #TSEND_C_Instance.DONE AND #EMISSION_TCP[1] = #STX
 	THEN
 	    #Step := #Step102;//Saut vers attente données
 	    #Attente_STX := False;
@@ -1072,8 +1073,8 @@ BEGIN
 	//*******************************************************
 	//******* Attente avant émission STX
 	//*******************************************************
-	#IEC_Timer_1_Instance(IN:=#Attente_STX,
-	                      PT:=t#50ms,
+	#IEC_Timer_1_Instance(IN := #Attente_STX,
+	                      PT := t#50ms,
 	                      Q => #Fin_attente_Emis_STX);
 	
 	
@@ -1082,7 +1083,7 @@ BEGIN
 	//*******************************************************
 	IF #Time_Out_Recep_Data THEN
 	    // Statement section IF
-	    #Attente_Data := false ;
+	    #Attente_Data := false;
 	    #Status_RK512 := #Status_RK512_9022; //Pas de données reçues apres envoi DLE
 	    #Step := #Step201;//Emission NAK
 	END_IF;
