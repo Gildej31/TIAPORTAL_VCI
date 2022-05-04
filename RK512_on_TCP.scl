@@ -4,11 +4,12 @@ TITLE = RK512_on_TCP
 AUTHOR : 'G.DEJEAN'
 FAMILY : Comm
 NAME : RK_TCPIP
-VERSION : 1.0
-//Portage protocole 3964R/RK512 sur protocole TCP/IP.                                                                 Version installé chez le client CONTINENTAL
+VERSION : 1.1
+//Portage protocole 3964R/RK512 sur protocole TCP/IP.                                                                 Version de test
+//Modification du 09/05/2022 depuis GitHub
    VAR_INPUT 
-      HW_ID : HW_ANY := 64;   // HW ID port Ethernet
-      Local_Port : UInt := 2000;   // Port TCP d'écoute
+      HW_ID : HW_ANY := 66;   // HW ID port Ethernet 66
+      Local_Port : UInt := 2001;   // Port TCP d'écoute 2001
    END_VAR
 
    VAR_OUTPUT 
