@@ -79,7 +79,7 @@
               <MultilingualTextItem ID="3" CompositionName="Items">
                 <AttributeList>
                   <Culture>fr-FR</Culture>
-                  <Text>Comment XXX</Text>
+                  <Text>Comment 1</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
