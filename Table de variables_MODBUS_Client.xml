@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2022-05-04T07:11:33.499032Z</Created>
+    <Created>2022-05-04T07:36:49.3984432Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -79,7 +79,7 @@
               <MultilingualTextItem ID="3" CompositionName="Items">
                 <AttributeList>
                   <Culture>fr-FR</Culture>
-                  <Text />
+                  <Text>Comment 1</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -101,7 +101,7 @@
               <MultilingualTextItem ID="6" CompositionName="Items">
                 <AttributeList>
                   <Culture>fr-FR</Culture>
-                  <Text />
+                  <Text>Comment 2</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -123,7 +123,7 @@
               <MultilingualTextItem ID="9" CompositionName="Items">
                 <AttributeList>
                   <Culture>fr-FR</Culture>
-                  <Text />
+                  <Text>Comment 3</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -145,7 +145,7 @@
               <MultilingualTextItem ID="C" CompositionName="Items">
                 <AttributeList>
                   <Culture>fr-FR</Culture>
-                  <Text />
+                  <Text>Comment 4</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -167,7 +167,7 @@
               <MultilingualTextItem ID="F" CompositionName="Items">
                 <AttributeList>
                   <Culture>fr-FR</Culture>
-                  <Text />
+                  <Text>Comment 5</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
