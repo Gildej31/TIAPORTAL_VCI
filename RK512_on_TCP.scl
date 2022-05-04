@@ -4,7 +4,7 @@ TITLE = RK512_on_TCP
 AUTHOR : 'G.DEJEAN'
 FAMILY : Comm
 NAME : RK_TCPIP
-VERSION : 1.1
+VERSION : 1.2
 //Portage protocole 3964R/RK512 sur protocole TCP/IP.                                                                 Version de test
 //Modification du 09/05/2022 depuis GitHub
    VAR_INPUT 
