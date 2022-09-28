@@ -2,24 +2,28 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2022-05-04T07:11:14.8238555Z</Created>
+    <Created>2022-09-28T08:54:02.7277484Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
         <DisplayName>Totally Integrated Automation Portal</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
+        <DisplayVersion>V17 Update 5</DisplayVersion>
       </Product>
       <OptionPackage>
         <DisplayName>TIA Portal Openness</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
+        <DisplayVersion>V17 Update 5</DisplayVersion>
       </OptionPackage>
       <OptionPackage>
         <DisplayName>TIA Portal Teamcenter Gateway</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
+        <DisplayVersion>V17 Update 5</DisplayVersion>
       </OptionPackage>
       <OptionPackage>
         <DisplayName>TIA Portal Version Control Interface</DisplayName>
         <DisplayVersion>V17</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Test Suite Advanced</DisplayName>
+        <DisplayVersion>V17 Update 1</DisplayVersion>
       </OptionPackage>
       <Product>
         <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
@@ -35,7 +39,7 @@
       </OptionPackage>
       <Product>
         <DisplayName>STEP 7 Professional</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
+        <DisplayVersion>V17 Update 5</DisplayVersion>
       </Product>
       <OptionPackage>
         <DisplayName>STEP 7 CFC</DisplayName>
@@ -46,8 +50,8 @@
         <DisplayVersion>V17</DisplayVersion>
       </OptionPackage>
       <Product>
-        <DisplayName>WinCC UA Professional</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
+        <DisplayName>WinCC Advanced / Unified PC</DisplayName>
+        <DisplayVersion>V17 Update 5</DisplayVersion>
       </Product>
       <OptionPackage>
         <DisplayName>WinCC Unified Calendar</DisplayName>
@@ -63,18 +67,13 @@
     <AttributeList>
       <AutoNumber>true</AutoNumber>
       <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
-      <DBAccessibleFromWebserver>true</DBAccessibleFromWebserver>
       <HeaderAuthor />
       <HeaderFamily />
       <HeaderName />
       <HeaderVersion>0.1</HeaderVersion>
       <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
   <Section Name="Static">
-    <Member Name="DATA_Int1" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><StartValue>0</StartValue></Member>
-    <Member Name="DATA_Int2" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
-    <Member Name="DATA_Int3" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
-    <Member Name="DATA_Real" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
-    <Member Name="DATA_Result" Datatype="Real" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="DATA" Datatype="&quot;UDT_CALCUL&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Sections><Section Name="None"><Member Name="int_1" Datatype="Int" /><Member Name="int_2" Datatype="Int" /><Member Name="int_3" Datatype="Int" /><Member Name="Real" Datatype="Real" /><Member Name="Result" Datatype="Real" /></Section></Sections></Member>
   </Section>
 </Sections></Interface>
       <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
