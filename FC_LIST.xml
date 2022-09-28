@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2022-09-28T09:00:58.8244961Z</Created>
+    <Created>2022-09-28T09:05:35.2996747Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -124,7 +124,15 @@
     </Access>
   </StlStatement>
   <StlStatement UId="24">
-    <StlToken Text="EMPTY_LINE" />
+    <StlToken Text="R" />
+    <Access Scope="GlobalVariable">
+      <Symbol>
+        <Component Name="SORTIE_0_1" />
+      </Symbol>
+      <LineComment Inserted="false">
+        <Text>RESET sortie 1</Text>
+      </LineComment>
+    </Access>
   </StlStatement>
   <StlStatement UId="22">
     <StlToken Text="EMPTY_LINE" />
