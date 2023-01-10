@@ -409,7 +409,7 @@
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
           <LogicalAddress>%M200.0</LogicalAddress>
-          <Name>Cause1</Name>
+          <Name>Cause_1</Name>
         </AttributeList>
         <ObjectList>
           <MultilingualText ID="38" CompositionName="Comment">
