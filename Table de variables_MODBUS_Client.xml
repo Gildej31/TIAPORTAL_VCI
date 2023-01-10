@@ -1,64 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Document>
-  <Engineering version="V17" />
-  <DocumentInfo>
-    <Created>2022-05-04T07:53:21.2523274Z</Created>
-    <ExportSetting>WithDefaults</ExportSetting>
-    <InstalledProducts>
-      <Product>
-        <DisplayName>Totally Integrated Automation Portal</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
-      </Product>
-      <OptionPackage>
-        <DisplayName>TIA Portal Openness</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
-      </OptionPackage>
-      <OptionPackage>
-        <DisplayName>TIA Portal Teamcenter Gateway</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
-      </OptionPackage>
-      <OptionPackage>
-        <DisplayName>TIA Portal Version Control Interface</DisplayName>
-        <DisplayVersion>V17</DisplayVersion>
-      </OptionPackage>
-      <Product>
-        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
-        <DisplayVersion>V17 Update2</DisplayVersion>
-      </Product>
-      <OptionPackage>
-        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
-        <DisplayVersion>V17 Update2</DisplayVersion>
-      </OptionPackage>
-      <OptionPackage>
-        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P, G115D</DisplayName>
-        <DisplayVersion>V17 Update2</DisplayVersion>
-      </OptionPackage>
-      <Product>
-        <DisplayName>STEP 7 Professional</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
-      </Product>
-      <OptionPackage>
-        <DisplayName>STEP 7 CFC</DisplayName>
-        <DisplayVersion>V17 Update 1</DisplayVersion>
-      </OptionPackage>
-      <OptionPackage>
-        <DisplayName>STEP 7 Safety</DisplayName>
-        <DisplayVersion>V17</DisplayVersion>
-      </OptionPackage>
-      <Product>
-        <DisplayName>WinCC UA Professional</DisplayName>
-        <DisplayVersion>V17 Update 3</DisplayVersion>
-      </Product>
-      <OptionPackage>
-        <DisplayName>WinCC Unified Calendar</DisplayName>
-        <DisplayVersion>V17</DisplayVersion>
-      </OptionPackage>
-      <OptionPackage>
-        <DisplayName>WinCC Unified Performance Insight</DisplayName>
-        <DisplayVersion>V17</DisplayVersion>
-      </OptionPackage>
-    </InstalledProducts>
-  </DocumentInfo>
+  <Engineering version="V18" />
   <SW.Tags.PlcTagTable ID="0">
     <AttributeList>
       <Name>Table de variables_MODBUS_Client</Name>
@@ -451,6 +393,50 @@
           <MultilingualText ID="35" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="36" CompositionName="Items">
+                <AttributeList>
+                  <Culture>fr-FR</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="37" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%M200.0</LogicalAddress>
+          <Name>Cause1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="38" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="39" CompositionName="Items">
+                <AttributeList>
+                  <Culture>fr-FR</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="3A" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%M200.1</LogicalAddress>
+          <Name>Effect1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3C" CompositionName="Items">
                 <AttributeList>
                   <Culture>fr-FR</Culture>
                   <Text />
