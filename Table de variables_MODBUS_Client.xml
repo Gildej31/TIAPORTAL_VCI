@@ -431,7 +431,7 @@
           <ExternalVisible>true</ExternalVisible>
           <ExternalWritable>true</ExternalWritable>
           <LogicalAddress>%M200.1</LogicalAddress>
-          <Name>Effect1</Name>
+          <Name>Effect_1</Name>
         </AttributeList>
         <ObjectList>
           <MultilingualText ID="3B" CompositionName="Comment">
