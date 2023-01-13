@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2022-09-30T08:40:10.810417Z</Created>
+    <Created>2023-01-13T12:10:50.7129222Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -66,10 +66,10 @@
   <SW.Blocks.FC ID="0">
     <AttributeList>
       <AutoNumber>true</AutoNumber>
-      <HeaderAuthor />
-      <HeaderFamily />
+      <HeaderAuthor>GD</HeaderAuthor>
+      <HeaderFamily>SCL</HeaderFamily>
       <HeaderName />
-      <HeaderVersion>0.1</HeaderVersion>
+      <HeaderVersion>1.2</HeaderVersion>
       <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
   <Section Name="Input" />
   <Section Name="Output" />
@@ -400,7 +400,7 @@
           <MultilingualTextItem ID="13" CompositionName="Items">
             <AttributeList>
               <Culture>fr-FR</Culture>
-              <Text />
+              <Text>FC Calcul</Text>
             </AttributeList>
           </MultilingualTextItem>
         </ObjectList>
