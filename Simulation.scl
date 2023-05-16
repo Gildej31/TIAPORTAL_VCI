@@ -1,0 +1,39 @@
+﻿FUNCTION "Simulation" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+	(******************** Simulation des entrées ************************)
+	"DB200_MQTT_REDEN_DATA".Input.Input_Real[0] := "DB200_MQTT_REDEN_DATA".Input.Input_Real[0] + 0.02;
+	IF "DB200_MQTT_REDEN_DATA".Input.Input_Real[0] > 125.2 THEN
+	    "DB200_MQTT_REDEN_DATA".Input.Input_Real[0] := 0.0;
+	END_IF;
+	
+	"DB200_MQTT_REDEN_DATA".Input.Input_Real[1] := "DB200_MQTT_REDEN_DATA".Input.Input_Real[1] - 0.02;
+	IF "DB200_MQTT_REDEN_DATA".Input.Input_Real[1] < -1205.2 THEN
+	    "DB200_MQTT_REDEN_DATA".Input.Input_Real[1] := 0.0;
+	END_IF;
+	
+	"DB200_MQTT_REDEN_DATA".Input.Input_Real[2] := "DB200_MQTT_REDEN_DATA".Input.Input_Real[2] + 1.02;
+	IF "DB200_MQTT_REDEN_DATA".Input.Input_Real[2] > 98759.0 THEN
+	    "DB200_MQTT_REDEN_DATA".Input.Input_Real[2] := 0.0;
+	END_IF;
+	
+	"DB200_MQTT_REDEN_DATA".Input.Input_Real[3] := "DB200_MQTT_REDEN_DATA".Input.Input_Real[3] + 0.22;
+	IF "DB200_MQTT_REDEN_DATA".Input.Input_Real[3] > 12566.2 THEN
+	    "DB200_MQTT_REDEN_DATA".Input.Input_Real[3] := 0.0;
+	END_IF;
+	
+	"DB200_MQTT_REDEN_DATA".Input.Input_Real[4] := "DB200_MQTT_REDEN_DATA".Input.Input_Real[4] - 0.52;
+	IF "DB200_MQTT_REDEN_DATA".Input.Input_Real[4] < -10205.2 THEN
+	    "DB200_MQTT_REDEN_DATA".Input.Input_Real[4] := 0.0;
+	END_IF;
+	
+	"DB200_MQTT_REDEN_DATA".Input.Input_Real[5] := "DB200_MQTT_REDEN_DATA".Input.Input_Real[5] + 1.252;
+	IF "DB200_MQTT_REDEN_DATA".Input.Input_Real[5] > 9875964.0 THEN
+	    "DB200_MQTT_REDEN_DATA".Input.Input_Real[5] := 0.0;
+	END_IF;
+	
+	
+END_FUNCTION
+
